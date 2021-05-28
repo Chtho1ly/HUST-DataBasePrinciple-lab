@@ -7,7 +7,7 @@ SELECT person.fullname, person.telephone
 FROM (person JOIN itinerary ON person.id = itinerary.p_id)
     JOIN location ON itinerary.loc_id = location.id
 WHERE (itinerary.s_time BETWEEN '2021.2.2 20:05:40' AND '2021.2.2 21:25:40' OR
-    itinerary.e_time BETWEEN '2021.2.2 20:05:40' AND '2021.2.2 21:25:40')
+    '2021.2.2 20:05:40' BETWEEN itinerary.s_time AND itinerary.e_time)
     AND location.location_name = '活动中心'
     
 ORDER BY person.fullname;

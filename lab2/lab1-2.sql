@@ -6,13 +6,15 @@
  
 -- 请在以下适当的空白位置填写SQL语句完成任务书的要求。空白位置不够的话，可以通过回车换行增加。
 -- 表1 人员表(person)
-DROP TABLE IF EXISTS isolation_location;
 DROP TABLE IF EXISTS isolation_record;
+DROP TABLE IF EXISTS isolation_location;
 DROP TABLE IF EXISTS close_contact;
 DROP TABLE IF EXISTS diagnose_record;
 DROP TABLE IF EXISTS itinerary;
+DROP TABLE IF EXISTS location_record_2;
 DROP TABLE IF EXISTS location;
 DROP TABLE IF EXISTS person;
+
 CREATE TABLE person  (
     id INT,
     fullname CHAR(20) NOT NULL,
@@ -31,11 +33,13 @@ CREATE TABLE location (
 CREATE TABLE itinerary  (
   id INT,
   p_id INT,
+  --p_name CHAR(20),
   loc_id INT,
   s_time DATETIME,
   e_time DATETIME,
   CONSTRAINT pk_itinerary PRIMARY KEY (id),
   CONSTRAINT fk_itinerary_pid FOREIGN KEY (p_id) REFERENCES person(id),
+  --FOREIGN KEY (p_name) REFERENCES person(fullname),
   CONSTRAINT fk_itinerary_lid FOREIGN KEY (loc_id) REFERENCES location(id)
 );
  

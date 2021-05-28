@@ -7,7 +7,7 @@ use covid19mon;
 SELECT location_name
 FROM isolation_location
     JOIN isolation_record ON isolation_location.id = isolation_record.isol_loc_id
-WHERE state = 1 
+WHERE state = 1
 GROUP by isolation_location.location_name, isolation_location.id
 HAVING COUNT(isol_loc_id) > 0
 ORDER BY isolation_location.id;

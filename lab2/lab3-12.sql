@@ -7,6 +7,7 @@ go
 
 SELECT location_name, (capacity-occupied) AS available_rooms
 FROM isolation_location_status
+WHERE capacity>occupied
 ORDER BY id;
 
 

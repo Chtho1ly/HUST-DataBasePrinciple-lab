@@ -17,6 +17,10 @@ FROM isolation_location
         )
 GROUP BY isolation_location.id, isolation_location.location_name, isolation_location.capacity;
 
+-- 打印视图
+go
+SELECT * FROM isolation_location_status;
+
 
 
 

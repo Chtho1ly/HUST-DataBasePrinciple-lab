@@ -23,3 +23,6 @@ AS
         FROM INSERTED
         WHERE INSERTED.result = 1
     );
+
+go
+UPDATE diagnose_record SET result = 1 WHERE p_id = 29;
